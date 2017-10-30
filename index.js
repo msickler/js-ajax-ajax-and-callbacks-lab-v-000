@@ -8,6 +8,14 @@ function searchRepositories() {
   }).fail(displayError())
 }
 
-function showRepositories(data) {
-
+function showRepositories(result) {
+  let repos = '<ul>' + result.items.map(result => {
+    return ( `<li>
+      <a href="${result.html_url}">${result.name}</a>
+      <p>${result.description} ${result.owner.url} ${result.owner.login}</p>
+      <img src="${result.owner.avatar_url}">
+      <a href="#" data-respository="${result.name}" data-owner="${result.owner.login}" onClick="showCommits(this)">Show Commits</a>
+      </li>`)
+  }).join('') + '</ul>'
+  return repos 
 }
