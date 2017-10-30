@@ -19,3 +19,16 @@ function showRepositories(result) {
   }).join('') + '</ul>'
   return repos
 }
+
+function showCommits(n) {
+  $.get(`https://api.github.com/repos/${n.dataset.owner}/${n.dataset.repository}/commits`, data => {
+    $('#details').html(displayCommits(data))
+  }).fail(error => { displayError() })
+}
+
+function displayCommits(data) {
+  const commits = data.map((commit) => {
+    return `<h3>${commit.sha}</h3> <p>${commit.commit.message}</p>`
+  })
+  return commits
+}
