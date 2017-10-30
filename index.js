@@ -27,8 +27,8 @@ function showCommits(n) {
 }
 
 function displayCommits(data) {
-  const commits = data.map((commit) => {
-    return `<h3>${commit.sha}</h3> <p>${commit.commit.message}</p>`
+  const commits = data.map(c => {
+    return `<h3>${c.sha}</h3> <p>${c.commit.message}</p>`
   })
   return commits
 }
