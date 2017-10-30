@@ -17,5 +17,5 @@ function showRepositories(result) {
       <a href="#" data-respository="${result.name}" data-owner="${result.owner.login}" onClick="showCommits(this)">Show Commits</a>
       </li>`)
   }).join('') + '</ul>'
-  return repos 
+  return repos
 }
